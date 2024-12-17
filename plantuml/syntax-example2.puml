@@ -1,0 +1,18 @@
+@startuml Klassdiagram
+
+class Graphic 
+interface Shape <<Interface>> {
+  draw()
+}
+class Circle
+class Triangle
+class Square
+class "Class A" as c1
+class "Class B" as c2
+
+Graphic -> Shape
+Shape <|.. Circle
+Shape <|.. Triangle
+Shape <|.. Square
+
+c1 -- c2

@@ -35,11 +35,53 @@ Hinweise zur Einrichtung siehe zugehörige Aufgabenstellung.
 
 Ein Beispiel für ein direkt im Dokument eingebettetes PlantUML-Diagramm.
 
-// diagram placeholder
+//titel der Grafik
+.Klassendiagramm mit PlantUML
+//Attribut für die Generierung mit der Asciidoctor-Diagramm Erweiterung
+//Attribute: Diagramm-Type (Textsyntax), generierter Dateiname (inkl. Zielverzeichnis {diagramsdir}), Bildformat (png, svg)
+[plantuml, "{diagramsdir}/syntax-example1", svg] 
+
+//textliche Beschreibung (PlantUML Notation) des entsprechenden Diagramm-Types
+....
+class Graphic 
+interface Shape <<Interface>> {
+  draw()
+}
+class Circle
+class Triangle
+class Square
+class Quader
+class "Class A" as c1
+class "Class B" as c2
+
+Graphic -> Shape
+Shape <|.. Circle
+Shape <|.. Triangle
+Shape <|.. Square
+Shape <|.. Quader
+
+c1 -- c2
+....
+// .... definieren einen Block
+// es sind maximal zwei classen verbunden werden
+// <|.. ist getrichelte Linie
+// -> sind durchgehende Linien 
+// -- verbindet zwei classen durch eine Linie
+// weiteres https://plantuml.com/de/class-diagram
 
 === Inkludiert
 
 Ein Beispiel für ein im Dokument inkludiertes PlantUML-Diagramm als externe Datei.
 
-// diagram placeholder
+.Klassendiagramm mit PlantUML
+[plantuml, "{diagramsdir}/syntax-example2", svg]
+....
+include::{plantumlsdir}/syntax-example2.puml[]
+....
 
+
+.Klassendiagramm mit PlanUML
+[plantuml, "{diagramsdir}/syntax-C4Model_layer1", svg]
+....
+include::{plantumlsdir}/C4Model_layer1.puml[]
+....
